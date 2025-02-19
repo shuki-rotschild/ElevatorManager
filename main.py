@@ -33,6 +33,10 @@ while run:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             print(pos)
+            building.call_elevator(pos)
 
     building.draw(canvas)
     pygame.display.update()
+    current_time = pygame.time.get_ticks()
+    delta_time = current_time - past_time
+    past_time = current_time

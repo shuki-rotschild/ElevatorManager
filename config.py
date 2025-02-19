@@ -2,19 +2,19 @@ import pygame
 
 
 # Building characteristics
-NUMBER_OF_FLOORS = 10
+NUMBER_OF_FLOORS = 3
 NUMBER_OF_ELEVATORS = 3
 
 # Window size
-WIDTH_WINDOW = 600
-HEIGHT_WINDOW =400
+WIDTH_WINDOW = 1000
+HEIGHT_WINDOW =600
 
 # Floor size
 WIDTH_FLOOR = 120
 HEIGHT_FLOOR = 80
 MARGIN = 10
 ROOF_FLOOR = 7
-BUTTON_RADIUS = 10
+BUTTON_RADIUS = 100
 
 # elevator size
 WIDTH_ELEVATOR = 60
@@ -27,6 +27,7 @@ GRAY = (128, 128, 128)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+SILVER = (0,128,128)
 
 #Fixed times in the program
 FLOOR_CROSSING_TIME = 500

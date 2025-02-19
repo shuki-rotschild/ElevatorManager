@@ -22,10 +22,28 @@ class Building:
         if (MARGIN <= x <= MARGIN + WIDTH_FLOOR and
                 HEIGHT_WINDOW - NUMBER_OF_FLOORS * HEIGHT_FLOOR <= y <= HEIGHT_WINDOW):
 
-            destination_floor = self.floors[(HEIGHT_WINDOW - y) / HEIGHT_FLOOR]
+            destination_floor = self.floors[(HEIGHT_WINDOW - y) // HEIGHT_FLOOR]
 
             if destination_floor.call_elevator(x, y):
-                pass
+
+                nim = float ("inf")
+                elevator_min = None
+                for elevator in self.elevators:
+                    if elevator.eta (destination_floor) < min:
+                         elevator_min = elevator
+
+
+                elevator_min.start_an_elevator(destination_floor)
+
+
+
 
     def update(self, delta_time):
+
+        for floor in self.floors:
+            floor.update(delta_time)
+
+        for elevator in self.elevators:
+            elevator.update(delta_time)
+
         pass
