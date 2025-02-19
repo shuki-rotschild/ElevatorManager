@@ -16,7 +16,8 @@ class Building:
 
         for elevator in self.elevators:
             elevator.draw(canvas)
-    #The function that checks if there is a call to the elevator, and if so it calls it.
+
+    # The function that checks if there is a call to the elevator, and if so it calls it.
     def call_elevator(self, pos):
         x, y = pos
         if (MARGIN <= x <= MARGIN + WIDTH_FLOOR and
@@ -26,17 +27,16 @@ class Building:
 
             if destination_floor.call_elevator(x, y):
 
-                nim = float ("inf")
+                min = float("inf")
                 elevator_min = None
                 for elevator in self.elevators:
-                    if elevator.eta (destination_floor) < min:
-                         elevator_min = elevator
+                    if elevator.tasks_time < min:
+                        min = elevator.tasks_time
+                        elevator_min = self.elevators[elevator.num]
 
+                destination_floor.timm_elevator_arrives = min
 
-                elevator_min.start_an_elevator(destination_floor)
-
-
-
+                elevator_min.start_an_elevator(destination_floor.num)
 
     def update(self, delta_time):
 
@@ -45,5 +45,3 @@ class Building:
 
         for elevator in self.elevators:
             elevator.update(delta_time)
-
-        pass

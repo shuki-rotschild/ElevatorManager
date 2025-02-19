@@ -2,7 +2,7 @@ import pygame
 
 
 # Building characteristics
-NUMBER_OF_FLOORS = 3
+NUMBER_OF_FLOORS = 70
 NUMBER_OF_ELEVATORS = 3
 
 # Window size
@@ -14,7 +14,7 @@ WIDTH_FLOOR = 120
 HEIGHT_FLOOR = 80
 MARGIN = 10
 ROOF_FLOOR = 7
-BUTTON_RADIUS = 100
+BUTTON_RADIUS = 50
 
 # elevator size
 WIDTH_ELEVATOR = 60

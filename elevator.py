@@ -31,11 +31,23 @@ class Elevator:
         self.tasks_time += abs(self.tasks[-1] - destination_floor) * FLOOR_CROSSING_TIME + FLOOR_WAITING_TIME
 
     def update(self, delta_time):
+
         if len(self.tasks) == 0:
             return
 
-        if HEIGHT_WINDOW - self.tasks[0] * HEIGHT_FLOOR < self.y:
-            self.y += delta_time * (HEIGHT_FLOOR // FLOOR_CROSSING_TIME)
+        self.tasks_time -= delta_time
 
-        if HEIGHT_WINDOW - self.tasks[0] * HEIGHT_FLOOR > self.y:
-            self.y -= delta_time * (HEIGHT_FLOOR // FLOOR_CROSSING_TIME)
+        current_point = self.y + HEIGHT_ELEVATOR
+        target_point = HEIGHT_WINDOW - self.tasks[0] * HEIGHT_FLOOR
+
+
+        if target_point == current_point:
+            self.tasks.pop(0)
+
+        if target_point < current_point:
+            self.y -=  min(int(delta_time * (HEIGHT_FLOOR / FLOOR_CROSSING_TIME)) , abs(current_point-target_point))
+
+
+        if target_point > current_point:
+
+            self.y +=  min(int(delta_time * (HEIGHT_FLOOR / FLOOR_CROSSING_TIME)) , abs(current_point-target_point))

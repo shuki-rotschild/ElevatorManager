@@ -10,8 +10,10 @@ class Floor:
         self.y = HEIGHT_WINDOW - HEIGHT_FLOOR * (self.num +1)
         self.x_button_center = MARGIN + WIDTH_FLOOR / 2
         self.y_button_center = HEIGHT_WINDOW - self.num * HEIGHT_FLOOR + HEIGHT_FLOOR / 2
-        self.button_color = BLACK
+        self.button_color = GREEN
 
+        self.an_elevator_arrives = False
+        self.timm_elevator_arrives = None
     # The function that draws the elevator on the screen according to the image saved in the program
 
     def draw(self, canvas):
@@ -37,12 +39,22 @@ class Floor:
         an_elevator_arrives = False
 
 
+
+
         if abs(x - self.x_button_center) <= BUTTON_RADIUS and abs(y - self.y_button_center) <= BUTTON_RADIUS:
             an_elevator_arrives = True
-            print(783)
+
+
 
         return an_elevator_arrives
 
 
     def update(self , delta_time):
-        pass
+        if self.an_elevator_arrives:
+            self.button_color = RED
+            self.timm_elevator_arrives -= delta_time
+
+            if self.timm_elevator_arrives <=0:
+                pygame.mixer.music.play()
+
+
