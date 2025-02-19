@@ -7,7 +7,7 @@ NUMBER_OF_ELEVATORS = 3
 
 # Window size
 WIDTH_WINDOW = 600
-HEIGHT_WINDOW = 800
+HEIGHT_WINDOW =400
 
 # Floor size
 WIDTH_FLOOR = 120
@@ -34,3 +34,7 @@ FLOOR_WAITING_TIME = 2000
 REFRESH_TIME = 60 # Every few milliseconds the main loop ran
 DEAD_TIME = 10000 # The number of milliseconds after which the lifts dissipate on average
 
+#The paths to the files required for the program
+FLOOR_IMAGE_PATH = "resources/floor.jpeg"
+ELEVATOR_IMAGE_PATH = "resources/elv.png"
+DING_IMAGE_PATH = "resources/ding.mp3"
